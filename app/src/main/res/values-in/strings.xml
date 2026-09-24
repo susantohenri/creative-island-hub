@@ -10,18 +10,36 @@
     <string name="action_share">Bagikan</string>
     <string name="action_retry">Coba Lagi</string>
     <string name="action_cancel">Batal</string>
+    <string name="action_ok">OK</string>
     
+    <string name="dialog_unlock_title">Buka Kode Island</string>
     <string name="msg_unlock_confirmation">Tonton iklan berhadiah untuk membuka kode island ini.</string>
     <string name="msg_copied">Kode island disalin</string>
     <string name="msg_empty_liked">Belum ada island yang disukai.</string>
     <string name="msg_error_loading">Gagal memuat data. Periksa koneksi Anda.</string>
+    <string name="msg_ad_loading">Memuat iklan, harap tunggu…</string>
+    <string name="msg_ad_not_ready">Iklan masih dimuat. Silakan coba sebentar lagi.</string>
     
     <string name="settings_language">Bahasa</string>
     <string name="settings_theme">Tema</string>
     <string name="settings_about">Tentang</string>
     <string name="settings_privacy_policy">Kebijakan Privasi</string>
     
+    <string name="dialog_select_theme">Pilih Tema</string>
+    <string name="theme_system">Ikuti Sistem</string>
+    <string name="theme_light">Terang</string>
+    <string name="theme_dark">Gelap</string>
+    
+    <string name="dialog_select_language">Pilih Bahasa</string>
+    <string name="language_auto">Default Sistem</string>
+    <string name="language_en">English</string>
+    <string name="language_id">Bahasa Indonesia</string>
+    
+    <string name="creator_code_label">Kreator: %1$s</string>
+    <string name="version_label">Versi %1$s</string>
+    <string name="all_categories">Semua Kategori</string>
+    
     <string name="disclaimer_about">Aplikasi ini adalah utilitas independen buatan penggemar dan tidak berafiliasi dengan, didukung oleh, atau disponsori oleh Epic Games.</string>
     
-    <string name="search_hint">Cari island...</string>
+    <string name="search_hint">Cari island, kode, kreator, tag…</string>
 </resources>

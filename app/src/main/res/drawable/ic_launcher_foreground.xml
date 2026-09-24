@@ -1,0 +1,56 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:scaleX="0.65"
+        android:scaleY="0.65"
+        android:translateX="18.9"
+        android:translateY="18.9">
+        <!-- Floating Island Base / Crystal Core -->
+        <!-- Diamond Beacon Top -->
+        <path
+            android:fillColor="#4ECCA3"
+            android:pathData="M54,16 L68,34 L54,46 L40,34 Z" />
+        <path
+            android:fillColor="#38B289"
+            android:pathData="M54,16 L68,34 L54,46 Z" />
+            
+        <!-- Gamepad / Portal Hub Body -->
+        <path
+            android:fillColor="#232946"
+            android:pathData="M30,48 C24,48 20,53 22,64 C23,71 27,78 35,78 C40,78 44,74 48,70 L60,70 C64,74 68,78 73,78 C81,78 85,71 86,64 C88,53 84,48 78,48 L30,48 Z" />
+
+        <!-- D-pad on Controller -->
+        <path
+            android:fillColor="#EEBBC3"
+            android:pathData="M33,56 L37,56 L37,52 L41,52 L41,56 L45,56 L45,60 L41,60 L41,64 L37,64 L37,60 L33,60 Z" />
+
+        <!-- Action Diamond Buttons -->
+        <!-- Top button -->
+        <path
+            android:fillColor="#4ECCA3"
+            android:pathData="M71,53 L74,56 L71,59 L68,56 Z" />
+        <!-- Right button -->
+        <path
+            android:fillColor="#4ECCA3"
+            android:pathData="M76,58 L79,61 L76,64 L73,61 Z" />
+        <!-- Bottom button -->
+        <path
+            android:fillColor="#4ECCA3"
+            android:pathData="M71,63 L74,66 L71,69 L68,66 Z" />
+        <!-- Left button -->
+        <path
+            android:fillColor="#4ECCA3"
+            android:pathData="M66,58 L69,61 L66,64 L63,61 Z" />
+
+        <!-- Floating Island Ground / Terrain Base Below -->
+        <path
+            android:fillColor="#16213E"
+            android:pathData="M26,82 L82,82 L68,98 L40,98 Z" />
+        <path
+            android:fillColor="#4ECCA3"
+            android:pathData="M24,80 L84,80 L82,84 L26,84 Z" />
+    </group>
+</vector>

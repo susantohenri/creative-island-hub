@@ -11,14 +11,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.henrisusanto.creativeislandhub.R
 import com.henrisusanto.creativeislandhub.ui.components.BannerAdView
 import com.henrisusanto.creativeislandhub.ui.viewmodel.MainViewModel
 
 @Composable
 fun CategoriesScreen(
     viewModel: MainViewModel,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onCategoryClick: (() -> Unit)? = null
 ) {
     val categories by viewModel.allCategories.collectAsState()
     val selectedCategory by viewModel.selectedCategory.collectAsState()
@@ -31,19 +34,25 @@ fun CategoriesScreen(
         ) {
             item {
                 CategoryItem(
-                    title = "All Categories",
+                    title = stringResource(R.string.all_categories),
                     isSelected = selectedCategory == null,
-                    onClick = { viewModel.selectCategory(null) }
+                    onClick = {
+                        viewModel.selectCategory(null)
+                        onCategoryClick?.invoke()
+                    }
                 )
-                Divider()
+                HorizontalDivider()
             }
             items(categories) { category ->
                 CategoryItem(
                     title = category,
                     isSelected = selectedCategory == category,
-                    onClick = { viewModel.selectCategory(category) }
+                    onClick = {
+                        viewModel.selectCategory(category)
+                        onCategoryClick?.invoke()
+                    }
                 )
-                Divider()
+                HorizontalDivider()
             }
         }
         

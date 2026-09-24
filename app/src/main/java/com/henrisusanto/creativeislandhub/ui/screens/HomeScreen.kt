@@ -1,6 +1,7 @@
 package com.henrisusanto.creativeislandhub.ui.screens
 
 import android.app.Activity
+import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -12,8 +13,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.henrisusanto.creativeislandhub.R
-import com.henrisusanto.creativeislandhub.ads.AdManager
-import com.henrisusanto.creativeislandhub.data.model.AdsConfig
 import com.henrisusanto.creativeislandhub.ui.components.BannerAdView
 import com.henrisusanto.creativeislandhub.ui.components.IslandCard
 import com.henrisusanto.creativeislandhub.ui.viewmodel.MainViewModel
@@ -31,6 +30,7 @@ fun HomeScreen(
     val likedIslands by viewModel.likedIslands.collectAsState()
     val searchQuery by viewModel.searchQuery.collectAsState()
     val adsConfig by viewModel.adsConfig.collectAsState()
+    val isAdLoading by viewModel.adManager.isAdLoading.collectAsState()
     
     val context = LocalContext.current
     var showUnlockDialog by remember { mutableStateOf<String?>(null) }
@@ -73,7 +73,8 @@ fun HomeScreen(
                         isUnlocked = unlockedIslands.contains(island.code),
                         isLiked = likedIslands.contains(island.code),
                         onUnlockClick = { showUnlockDialog = island.code },
-                        onLikeClick = { viewModel.toggleLike(island.code) }
+                        onLikeClick = { viewModel.toggleLike(island.code) },
+                        onTagClick = { tag -> viewModel.updateSearchQuery(tag) }
                     )
                 }
             }
@@ -84,28 +85,54 @@ fun HomeScreen(
         }
     }
 
+    if (isAdLoading) {
+        AlertDialog(
+            onDismissRequest = {},
+            title = { Text(stringResource(R.string.app_name)) },
+            text = {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    CircularProgressIndicator(modifier = Modifier.size(32.dp))
+                    Text(stringResource(R.string.msg_ad_loading))
+                }
+            },
+            confirmButton = {}
+        )
+    }
+
     if (showUnlockDialog != null) {
         AlertDialog(
             onDismissRequest = { showUnlockDialog = null },
-            title = { Text(stringResource(R.string.app_name)) },
+            title = { Text(stringResource(R.string.dialog_unlock_title)) },
             text = { Text(stringResource(R.string.msg_unlock_confirmation)) },
             confirmButton = {
                 TextButton(
                     onClick = {
                         val codeToUnlock = showUnlockDialog
                         showUnlockDialog = null
-                        if (codeToUnlock != null && adsConfig.isAdsEnabled && adsConfig.rewardedAdUnitId != null) {
-                            viewModel.adManager.loadRewardedAd(adsConfig.rewardedAdUnitId!!)
-                            // For simplicity, wait a moment or show directly if preloaded. 
-                            // Ideal UX is preloading.
-                            viewModel.adManager.showRewardedAd(
-                                activity = context as Activity,
-                                onRewardEarned = { viewModel.unlockIsland(codeToUnlock) },
-                                onAdClosed = {}
-                            )
-                        } else if (codeToUnlock != null) {
-                            // Fallback unlock if ads disabled
-                            viewModel.unlockIsland(codeToUnlock)
+                        if (codeToUnlock != null) {
+                            if (adsConfig.isAdsEnabled && adsConfig.rewardedAdUnitId != null) {
+                                val activity = context as? Activity
+                                if (activity != null) {
+                                    viewModel.adManager.loadAndShowRewardedAd(
+                                        activity = activity,
+                                        adUnitId = adsConfig.rewardedAdUnitId!!,
+                                        onRewardEarned = { viewModel.unlockIsland(codeToUnlock) },
+                                        onAdClosed = {},
+                                        onFailed = {
+                                            Toast.makeText(
+                                                context,
+                                                context.getString(R.string.msg_ad_not_ready),
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    )
+                                }
+                            } else {
+                                viewModel.unlockIsland(codeToUnlock)
+                            }
                         }
                     }
                 ) {

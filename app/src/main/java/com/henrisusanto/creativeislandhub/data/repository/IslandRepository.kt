@@ -21,6 +21,8 @@ class IslandRepository(
 
     val unlockedIslandsFlow: Flow<Set<String>> = preferencesDataStore.unlockedIslandsFlow
     val likedIslandsFlow: Flow<Set<String>> = preferencesDataStore.likedIslandsFlow
+    val themeModeFlow: Flow<String> = preferencesDataStore.themeModeFlow
+    val languageFlow: Flow<String> = preferencesDataStore.languageFlow
 
     suspend fun fetchIslands() {
         try {
@@ -48,5 +50,13 @@ class IslandRepository(
 
     suspend fun toggleLike(code: String) {
         preferencesDataStore.toggleLikeIsland(code)
+    }
+
+    suspend fun setThemeMode(mode: String) {
+        preferencesDataStore.setThemeMode(mode)
+    }
+
+    suspend fun setLanguage(lang: String) {
+        preferencesDataStore.setLanguage(lang)
     }
 }

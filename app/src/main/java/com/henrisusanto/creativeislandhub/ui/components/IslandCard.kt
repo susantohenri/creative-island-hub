@@ -6,13 +6,14 @@ import android.content.Context
 import android.content.Intent
 import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Lock
@@ -22,7 +23,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -41,7 +42,8 @@ fun IslandCard(
     isLiked: Boolean,
     onUnlockClick: () -> Unit,
     onLikeClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onTagClick: ((String) -> Unit)? = null
 ) {
     val context = LocalContext.current
     var isExpanded by remember { mutableStateOf(false) }
@@ -64,42 +66,90 @@ fun IslandCard(
                     model = ImageRequest.Builder(context)
                         .data(island.thumbnailUrl)
                         .crossfade(true)
+                        .placeholder(R.drawable.ic_thumbnail_placeholder)
+                        .error(R.drawable.ic_thumbnail_error)
+                        .fallback(R.drawable.ic_thumbnail_placeholder)
                         .build(),
                     contentDescription = island.title,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.fillMaxSize()
                 )
-                
+
+                // Lock / Unlock badge indicator on top-left of thumbnail
+                Surface(
+                    shape = RoundedCornerShape(8.dp),
+                    color = if (isUnlocked) Color(0xCC2E7D32) else Color(0xCC212121),
+                    modifier = Modifier
+                        .align(Alignment.TopStart)
+                        .padding(10.dp)
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = if (isUnlocked) Icons.Default.CheckCircle else Icons.Default.Lock,
+                            contentDescription = if (isUnlocked) "Unlocked" else "Locked",
+                            tint = Color.White,
+                            modifier = Modifier.size(14.dp)
+                        )
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(
+                            text = if (isUnlocked) "UNLOCKED" else "LOCKED",
+                            style = MaterialTheme.typography.labelSmall,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
+                        )
+                    }
+                }
+
+                // Like button on top-right of thumbnail
                 IconButton(
                     onClick = onLikeClick,
                     modifier = Modifier
                         .align(Alignment.TopEnd)
                         .padding(8.dp)
+                        .background(Color(0x66000000), shape = RoundedCornerShape(50))
                 ) {
                     Icon(
                         imageVector = if (isLiked) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
                         contentDescription = "Like",
-                        tint = if (isLiked) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
+                        tint = if (isLiked) MaterialTheme.colorScheme.primary else Color.White
                     )
                 }
             }
-            
+
             Column(modifier = Modifier.padding(16.dp)) {
                 Text(
                     text = island.title,
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold
                 )
-                
-                if (island.category != null) {
-                    Text(
-                        text = island.category,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.padding(top = 4.dp)
-                    )
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 4.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    if (!island.category.isNullOrBlank()) {
+                        Text(
+                            text = island.category,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.primary,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    }
+                    if (!island.creatorCode.isNullOrBlank()) {
+                        Text(
+                            text = stringResource(R.string.creator_code_label, island.creatorCode),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.outline
+                        )
+                    }
                 }
-                
+
                 AnimatedVisibility(visible = isExpanded) {
                     Column(modifier = Modifier.padding(top = 12.dp)) {
                         if (island.tags.isNotEmpty()) {
@@ -109,7 +159,7 @@ fun IslandCard(
                             ) {
                                 items(island.tags) { tag ->
                                     SuggestionChip(
-                                        onClick = { },
+                                        onClick = { onTagClick?.invoke(tag) },
                                         label = { Text(tag) }
                                     )
                                 }
