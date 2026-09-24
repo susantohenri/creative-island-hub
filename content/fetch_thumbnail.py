@@ -6,8 +6,9 @@ import requests
 from PIL import Image
 from io import BytesIO
 
-DATA_FILE = Path("./konten/data.json")
-OUTPUT_DIR = Path("./konten")
+BASE_DIR = Path(__file__).resolve().parent
+DATA_FILE = BASE_DIR / "data.json"
+OUTPUT_DIR = BASE_DIR / "thumbnails"
 
 DELAY = 1.5
 
