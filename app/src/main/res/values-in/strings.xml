@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Creative Island Hub</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_liked">Disukai</string>
+    <string name="title_categories">Kategori</string>
+    <string name="title_settings">Pengaturan</string>
+    
+    <string name="action_watch_ad">Tonton Iklan untuk Buka Kode</string>
+    <string name="action_copy">Salin</string>
+    <string name="action_share">Bagikan</string>
+    <string name="action_retry">Coba Lagi</string>
+    <string name="action_cancel">Batal</string>
+    
+    <string name="msg_unlock_confirmation">Tonton iklan berhadiah untuk membuka kode island ini.</string>
+    <string name="msg_copied">Kode island disalin</string>
+    <string name="msg_empty_liked">Belum ada island yang disukai.</string>
+    <string name="msg_error_loading">Gagal memuat data. Periksa koneksi Anda.</string>
+    
+    <string name="settings_language">Bahasa</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_about">Tentang</string>
+    <string name="settings_privacy_policy">Kebijakan Privasi</string>
+    
+    <string name="disclaimer_about">Aplikasi ini adalah utilitas independen buatan penggemar dan tidak berafiliasi dengan, didukung oleh, atau disponsori oleh Epic Games.</string>
+    
+    <string name="search_hint">Cari island...</string>
+</resources>
