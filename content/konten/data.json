@@ -1,0 +1,1273 @@
+{
+    "_pagination": {
+        "next": "/ecosystem/v1/islands?after=MDAyNi03NTM0LTI5NDY%3D\u0026size=100"
+    },
+    "data": [
+        {
+            "code": "9266-8386-7240",
+            "createdIn": "UEFN",
+            "creatorCode": "ipc",
+            "cursor": "OTI2Ni04Mzg2LTcyNDA=",
+            "tags": [
+                "8v8",
+                "free for all",
+                "friendly",
+                "competitive"
+            ],
+            "title": "Fistfight: Blue vs. Red"
+        },
+        {
+            "code": "5739-6288-4476",
+            "createdIn": "UEFN",
+            "creatorCode": "ifeelit",
+            "cursor": "NTczOS02Mjg4LTQ0NzY=",
+            "tags": [
+                "boss battle",
+                "heroes",
+                "battle royale",
+                "capture the flag"
+            ],
+            "title": "90 to the terraz"
+        },
+        {
+            "code": "7682-7894-9847",
+            "createdIn": "UEFN",
+            "creatorCode": "getintheway",
+            "cursor": "NzY4Mi03ODk0LTk4NDc=",
+            "tags": [
+                "board game",
+                "driver simulator",
+                "economy",
+                "farming simulator"
+            ],
+            "title": "war of the angels!"
+        },
+        {
+            "code": "1744-0872-8425",
+            "createdIn": "UEFN",
+            "creatorCode": "bbsaimon",
+            "cursor": "MTc0NC0wODcyLTg0MjU=",
+            "tags": [
+                "board game",
+                "difficulty: very hard",
+                "educational",
+                "explosives"
+            ],
+            "title": "go hard on this map!"
+        },
+        {
+            "code": "6872-4531-6480",
+            "createdIn": "UEFN",
+            "creatorCode": "fortnitecool2027",
+            "cursor": "Njg3Mi00NTMxLTY0ODA=",
+            "tags": [
+                "boss battle",
+                "sports",
+                "arena",
+                "just for fun"
+            ],
+            "title": "WELCOME to EA FC 27 ⚽️🎮 FIFA 2027"
+        },
+        {
+            "code": "3761-6946-1392",
+            "createdIn": "UEFN",
+            "creatorCode": "notenough1",
+            "cursor": "Mzc2MS02OTQ2LTEzOTI=",
+            "tags": [
+                "boss battle",
+                "difficulty: hard",
+                "exploration",
+                "explosives"
+            ],
+            "title": "zelensky prime on fc"
+        },
+        {
+            "code": "3710-2271-7030",
+            "createdIn": "UEFN",
+            "creatorCode": "migajonfortnite",
+            "cursor": "MzcxMC0yMjcxLTcwMzA=",
+            "tags": [
+                "music",
+                "battle",
+                "party game",
+                "respawn"
+            ],
+            "title": "FREESTYLE LIBRE RAP BATTLE🎤 MUSIC FIGHT"
+        },
+        {
+            "code": "7311-5833-7627",
+            "createdIn": "UEFN",
+            "creatorCode": "gettab",
+            "cursor": "NzMxMS01ODMzLTc2Mjc=",
+            "tags": [
+                "battle royale",
+                "difficulty: very hard",
+                "economy",
+                "fashion"
+            ],
+            "title": "come back to me plssss"
+        },
+        {
+            "code": "9014-5970-9215",
+            "createdIn": "UEFN",
+            "creatorCode": "hanachan",
+            "cursor": "OTAxNC01OTcwLTkyMTU=",
+            "tags": [
+                "driver simulator",
+                "race",
+                "open world",
+                "minigame"
+            ],
+            "title": "Cluck \u0026 Crash 🚗💥"
+        },
+        {
+            "category": "KPop Demon Hunters",
+            "code": "5780-6809-7886",
+            "createdIn": "UEFN",
+            "creatorCode": "lucasmaciel",
+            "cursor": "NTc4MC02ODA5LTc4ODY=",
+            "tags": [
+                "race",
+                "driver simulator",
+                "objective",
+                "just for fun"
+            ],
+            "title": "FAST CARS - CAR GAME 26"
+        },
+        {
+            "code": "6054-8752-7613",
+            "createdIn": "FNC",
+            "creatorCode": "axtreme",
+            "cursor": "NjA1NC04NzUyLTc2MTM=",
+            "tags": [
+                "1v1",
+                "base building",
+                "free for all"
+            ],
+            "title": "sopifiles 1v1 map"
+        },
+        {
+            "code": "3969-6588-4853",
+            "createdIn": "UEFN",
+            "creatorCode": "axtel",
+            "cursor": "Mzk2OS02NTg4LTQ4NTM=",
+            "tags": [
+                "just for fun",
+                "free for all"
+            ],
+            "title": "Danty CH2S2 Battle Lab"
+        },
+        {
+            "code": "1098-8350-8032",
+            "createdIn": "UEFN",
+            "creatorCode": "migajonfortnite",
+            "cursor": "MTA5OC04MzUwLTgwMzI=",
+            "tags": [
+                "battle",
+                "sports",
+                "pvp",
+                "casual"
+            ],
+            "title": "FC MOBILE 27 📱⚽️🎮 FIFA 2027"
+        },
+        {
+            "code": "9353-5027-1460",
+            "createdIn": "UEFN",
+            "creatorCode": "lb.wg",
+            "cursor": "OTM1My01MDI3LTE0NjA=",
+            "tags": [
+                "pvp",
+                "arena",
+                "shooter",
+                "free for all"
+            ],
+            "title": "ROOF RUSH // ÜP007 //"
+        },
+        {
+            "code": "4807-6553-6319",
+            "createdIn": "UEFN",
+            "creatorCode": "scrapfv",
+            "cursor": "NDgwNy02NTUzLTYzMTk=",
+            "tags": [
+                "1v1",
+                "building",
+                "competitive",
+                "free for all"
+            ],
+            "title": "G2Y 1V1 BUILD FIGHTS (200 PUMPS)"
+        },
+        {
+            "code": "9199-9220-7629",
+            "createdIn": "FNC",
+            "creatorCode": "d0ll",
+            "cursor": "OTE5OS05MjIwLTc2Mjk=",
+            "tags": [
+                "first person",
+                "free for all"
+            ],
+            "title": "D0lls FPS experience"
+        },
+        {
+            "code": "4180-7250-3182",
+            "createdIn": "UEFN",
+            "creatorCode": "coin-xp-steal",
+            "cursor": "NDE4MC03MjUwLTMxODI=",
+            "tags": [
+                "driver simulator",
+                "race",
+                "open world",
+                "minigame"
+            ],
+            "title": "NEON KART RACERS 🍌"
+        },
+        {
+            "code": "8534-1167-5006",
+            "createdIn": "UEFN",
+            "creatorCode": "kurutai",
+            "cursor": "ODUzNC0xMTY3LTUwMDY=",
+            "tags": [
+                "tycoon",
+                "collection"
+            ],
+            "title": "恐竜パークタイクーン"
+        },
+        {
+            "category": "TMNT",
+            "code": "9623-0066-5947",
+            "createdIn": "UEFN",
+            "creatorCode": "lucasmaciel",
+            "cursor": "OTYyMy0wMDY2LTU5NDc=",
+            "tags": [
+                "race",
+                "driver simulator",
+                "objective",
+                "exploration"
+            ],
+            "title": "FAST CARS - CAR GAME"
+        },
+        {
+            "code": "1694-2057-0394",
+            "createdIn": "FNC",
+            "creatorCode": "thenoodles2005",
+            "cursor": "MTY5NC0yMDU3LTAzOTQ=",
+            "tags": [
+                "3v3",
+                "classes",
+                "competitive"
+            ],
+            "title": "Crowned Trinity"
+        },
+        {
+            "code": "9023-7876-6988",
+            "createdIn": "UEFN",
+            "creatorCode": "folaxx",
+            "cursor": "OTAyMy03ODc2LTY5ODg=",
+            "tags": [
+                "shooter",
+                "just for fun",
+                "boss battle",
+                "pvp"
+            ],
+            "title": "NEW DUO DAYA KEVIN AU TOILET GUN GAME"
+        },
+        {
+            "code": "7890-7107-2592",
+            "createdIn": "UEFN",
+            "creatorCode": "tyxzy_y",
+            "cursor": "Nzg5MC03MTA3LTI1OTI=",
+            "tags": [
+                "1v1",
+                "2v2",
+                "3v3",
+                "4v4"
+            ],
+            "title": "GUN GAME RYU DORT A 5H"
+        },
+        {
+            "category": "SQUID GAME",
+            "code": "6279-4811-1439",
+            "createdIn": "UEFN",
+            "creatorCode": "lucasmaciel",
+            "cursor": "NjI3OS00ODExLTE0Mzk=",
+            "tags": [
+                "race",
+                "driver simulator",
+                "objective",
+                "exploration"
+            ],
+            "title": "CAR GAME - MEGA RAMP - ALL WEAPONS"
+        },
+        {
+            "code": "6540-8782-8293",
+            "createdIn": "UEFN",
+            "creatorCode": "jostrick",
+            "cursor": "NjU0MC04NzgyLTgyOTM=",
+            "tags": [
+                "1v1",
+                "pvp",
+                "free for all",
+                "battle royale"
+            ],
+            "title": "1V1V1 FB"
+        },
+        {
+            "code": "2389-3246-4557",
+            "createdIn": "FNC",
+            "creatorCode": "rainyboy",
+            "cursor": "MjM4OS0zMjQ2LTQ1NTc=",
+            "tags": [
+                "1v1",
+                "just for fun"
+            ],
+            "title": "Wix 1v1"
+        },
+        {
+            "code": "5052-3437-7470",
+            "createdIn": "FNC",
+            "creatorCode": "gh0stb1ood",
+            "cursor": "NTA1Mi0zNDM3LTc0NzA=",
+            "tags": [
+                "arcade",
+                "artistic",
+                "party world",
+                "just for fun"
+            ],
+            "title": "Stray Kids Party Royale"
+        },
+        {
+            "code": "7578-3386-4180",
+            "createdIn": "UEFN",
+            "creatorCode": "konnaz12",
+            "cursor": "NzU3OC0zMzg2LTQxODA=",
+            "tags": [
+                "just for fun",
+                "minigame",
+                "party game",
+                "pvp"
+            ],
+            "title": "PILLARS KK"
+        },
+        {
+            "code": "7550-7411-7665",
+            "createdIn": "FNC",
+            "creatorCode": "fettsolo",
+            "cursor": "NzU1MC03NDExLTc2NjU=",
+            "tags": [
+                "atmospheric",
+                "fortnitemares",
+                "horror",
+                "party game"
+            ],
+            "title": "Army of Darkness Slasher"
+        },
+        {
+            "code": "9219-4305-9352",
+            "createdIn": "UEFN",
+            "creatorCode": "creatorpj",
+            "cursor": "OTIxOS00MzA1LTkzNTI=",
+            "tags": [
+                "creatures",
+                "free for all",
+                "horror",
+                "survival horror"
+            ],
+            "title": "HAUNTEDISLANDZ"
+        },
+        {
+            "code": "9168-4175-7815",
+            "createdIn": "UEFN",
+            "creatorCode": "overmod",
+            "cursor": "OTE2OC00MTc1LTc4MTU=",
+            "tags": [
+                "arena",
+                "pvp",
+                "free for all",
+                "1v1"
+            ],
+            "title": "THEPIT"
+        },
+        {
+            "code": "0897-1567-0324",
+            "createdIn": "FNC",
+            "creatorCode": "riyys",
+            "cursor": "MDg5Ny0xNTY3LTAzMjQ=",
+            "tags": [
+                "1v1",
+                "action",
+                "practice"
+            ],
+            "title": "1v1 Blossom"
+        },
+        {
+            "code": "1116-4274-4600",
+            "createdIn": "FNC",
+            "creatorCode": "fettsolo",
+            "cursor": "MTExNi00Mjc0LTQ2MDA=",
+            "tags": [
+                "atmospheric",
+                "fortnitemares",
+                "horror",
+                "party game"
+            ],
+            "title": "Evil Dead Slasher"
+        },
+        {
+            "code": "8784-1776-6610",
+            "createdIn": "UEFN",
+            "creatorCode": "jnmstudio",
+            "cursor": "ODc4NC0xNzc2LTY2MTA=",
+            "tags": [
+                "deathrun",
+                "difficulty: hard",
+                "platformer",
+                "parkour"
+            ],
+            "title": "Hardcore Dropper 3.0"
+        },
+        {
+            "code": "6950-0582-0813",
+            "createdIn": "FNC",
+            "creatorCode": "skr7",
+            "cursor": "Njk1MC0wNTgyLTA4MTM=",
+            "tags": [
+                "parkour"
+            ],
+            "title": "باركور مسحب حراااق ⚡️🔥| PARKOUR"
+        },
+        {
+            "code": "1024-0709-5558",
+            "createdIn": "UEFN",
+            "creatorCode": "codyclown",
+            "cursor": "MTAyNC0wNzA5LTU1NTg=",
+            "tags": [
+                "story"
+            ],
+            "title": "Surfplanken'itren Chapter 3+4 Story Hub"
+        },
+        {
+            "code": "6432-9341-2967",
+            "createdIn": "UEFN",
+            "creatorCode": "sixseven6752",
+            "cursor": "NjQzMi05MzQxLTI5Njc=",
+            "tags": [
+                "strategy",
+                "building",
+                "co-op",
+                "arena"
+            ],
+            "title": "🎢 RED VS BLUE: Thrill Park"
+        },
+        {
+            "code": "1055-2078-4449",
+            "createdIn": "UEFN",
+            "creatorCode": "raiinman",
+            "cursor": "MTA1NS0yMDc4LTQ0NDk=",
+            "tags": [
+                "arena",
+                "gun game",
+                "action",
+                "gun fight"
+            ],
+            "title": "Aqua Shift Gun Game + TDM"
+        },
+        {
+            "code": "6571-1642-5553",
+            "createdIn": "FNC",
+            "creatorCode": "a5tro",
+            "cursor": "NjU3MS0xNjQyLTU1NTM=",
+            "tags": [
+                "1v1",
+                "building",
+                "respawn",
+                "secrets"
+            ],
+            "title": "Astro Build Fights"
+        },
+        {
+            "code": "8452-1486-3111",
+            "createdIn": "UEFN",
+            "creatorCode": "codyclown",
+            "cursor": "ODQ1Mi0xNDg2LTMxMTE=",
+            "tags": [
+                "battle royale",
+                "free for all",
+                "story",
+                "winterfest"
+            ],
+            "title": "Frost Lands 2: Fight Arena"
+        },
+        {
+            "code": "1655-7008-8327",
+            "createdIn": "UEFN",
+            "creatorCode": "dxdes",
+            "cursor": "MTY1NS03MDA4LTgzMjc=",
+            "tags": [
+                "single player",
+                "training",
+                "practice",
+                "solo"
+            ],
+            "title": "Mantle Clutch Practice"
+        },
+        {
+            "code": "4919-9765-5711",
+            "createdIn": "UEFN",
+            "creatorCode": "back-slide26",
+            "cursor": "NDkxOS05NzY1LTU3MTE=",
+            "tags": [
+                "1v1",
+                "respawn",
+                "practice",
+                "free for all"
+            ],
+            "title": "Tiltted Reload"
+        },
+        {
+            "category": "Star Wars",
+            "code": "7533-6515-6182",
+            "createdIn": "UEFN",
+            "creatorCode": "tekkzo",
+            "cursor": "NzUzMy02NTE1LTYxODI=",
+            "tags": [
+                "driver simulator",
+                "open world",
+                "adventure",
+                "exploration"
+            ],
+            "title": "DRIVE ISLAND STAR WARS"
+        },
+        {
+            "category": "SQUID GAME",
+            "code": "8336-9706-1438",
+            "createdIn": "UEFN",
+            "creatorCode": "dj-side",
+            "cursor": "ODMzNi05NzA2LTE0Mzg=",
+            "tags": [
+                "race",
+                "driver simulator",
+                "just for fun",
+                "objective"
+            ],
+            "title": "RAMP 🚗CAR GAMES🕹️CITY ALL G 🔧 CUSTOM"
+        },
+        {
+            "code": "6067-8455-5377",
+            "createdIn": "FNC",
+            "creatorCode": "estheyisxo",
+            "cursor": "NjA2Ny04NDU1LTUzNzc=",
+            "tags": [
+                "free for all",
+                "practice",
+                "pvp",
+                "1v1"
+            ],
+            "title": "1V1 3XTR3M3 1NF1N1TY"
+        },
+        {
+            "code": "3553-6094-4319",
+            "createdIn": "UEFN",
+            "creatorCode": "mti",
+            "cursor": "MzU1My02MDk0LTQzMTk=",
+            "tags": [
+                "parkour",
+                "deathrun",
+                "competitive",
+                "funny"
+            ],
+            "title": "HARD PARKOUR ONLY 1% CAN WIN!"
+        },
+        {
+            "category": "Star Wars",
+            "code": "9514-2222-4379",
+            "createdIn": "UEFN",
+            "creatorCode": "codyclown",
+            "cursor": "OTUxNC0yMjIyLTQzNzk=",
+            "tags": [
+                "battle royale",
+                "respawn",
+                "competitive",
+                "building"
+            ],
+            "title": "Moses Day Of Darth"
+        },
+        {
+            "code": "8127-5239-8749",
+            "createdIn": "UEFN",
+            "creatorCode": "ssro",
+            "cursor": "ODEyNy01MjM5LTg3NDk=",
+            "tags": [
+                "funny",
+                "role playing",
+                "collection",
+                "open world"
+            ],
+            "title": "Sero Party Royale 2.2 🪄"
+        },
+        {
+            "code": "0324-5199-8637",
+            "createdIn": "UEFN",
+            "creatorCode": "chap",
+            "cursor": "MDMyNC01MTk5LTg2Mzc=",
+            "tags": [
+                "free for all",
+                "boxfight",
+                "pvp",
+                "practice"
+            ],
+            "title": "Pro Turtle Wars FFA Box Fights"
+        },
+        {
+            "code": "1755-3520-7492",
+            "createdIn": "UEFN",
+            "creatorCode": "kiwilover",
+            "cursor": "MTc1NS0zNTIwLTc0OTI=",
+            "tags": [
+                "casual",
+                "free for all",
+                "classes",
+                "just for fun"
+            ],
+            "title": "Tank io"
+        },
+        {
+            "code": "0069-7106-7318",
+            "createdIn": "FNC",
+            "creatorCode": "news-fn",
+            "cursor": "MDA2OS03MTA2LTczMTg=",
+            "tags": [
+                "1v1",
+                "action",
+                "battle royale",
+                "free for all"
+            ],
+            "title": "Reload FFA All Weapons"
+        },
+        {
+            "code": "2458-9100-2287",
+            "createdIn": "UEFN",
+            "creatorCode": "topic",
+            "cursor": "MjQ1OC05MTAwLTIyODc=",
+            "tags": [
+                "arena",
+                "free for all",
+                "pvp"
+            ],
+            "title": "PARK PVP حديقة"
+        },
+        {
+            "category": "TMNT",
+            "code": "6448-3966-1306",
+            "createdIn": "UEFN",
+            "creatorCode": "mamao",
+            "cursor": "NjQ0OC0zOTY2LTEzMDY=",
+            "tags": [
+                "shooter",
+                "zonewars",
+                "building",
+                "training"
+            ],
+            "title": "1V1V1 RELOAD - WITH TRAPS"
+        },
+        {
+            "code": "6458-3474-7968",
+            "createdIn": "UEFN",
+            "creatorCode": "zielony",
+            "cursor": "NjQ1OC0zNDc0LTc5Njg=",
+            "tags": [
+                "arena",
+                "pvp",
+                "strategy"
+            ],
+            "title": "Pro Edit Wars🏆"
+        },
+        {
+            "code": "5906-1664-7840",
+            "createdIn": "UEFN",
+            "creatorCode": "montecarlo",
+            "cursor": "NTkwNi0xNjY0LTc4NDA=",
+            "tags": [
+                "capture the flag",
+                "boxfight",
+                "escape",
+                "event"
+            ],
+            "title": "one hand 2 job!!"
+        },
+        {
+            "category": "TMNT",
+            "code": "7120-3586-0270",
+            "createdIn": "UEFN",
+            "creatorCode": "dj-side",
+            "cursor": "NzEyMC0zNTg2LTAyNzA=",
+            "tags": [
+                "race",
+                "just for fun",
+                "objective",
+                "exploration"
+            ],
+            "title": "TMNT - NEW RAMP GAMES"
+        },
+        {
+            "code": "0105-7498-8664",
+            "createdIn": "UEFN",
+            "creatorCode": "everynight",
+            "cursor": "MDEwNS03NDk4LTg2NjQ=",
+            "tags": [
+                "7v7",
+                "difficulty: very hard",
+                "gun fight",
+                "parkour"
+            ],
+            "title": "harvard shchool law!!"
+        },
+        {
+            "code": "0205-4064-1277",
+            "createdIn": "UEFN",
+            "creatorCode": "r_e_z_e",
+            "cursor": "MDIwNS00MDY0LTEyNzc=",
+            "tags": [
+                "just for fun",
+                "minigame",
+                "pvp",
+                "free for all"
+            ],
+            "title": "THE PILLERS PILLARS PILERS PILARS"
+        },
+        {
+            "code": "7513-4458-0968",
+            "createdIn": "UEFN",
+            "creatorCode": "b414",
+            "cursor": "NzUxMy00NDU4LTA5Njg=",
+            "tags": [
+                "free for all",
+                "open world",
+                "role playing"
+            ],
+            "title": "Grand Drive Beach Heist City FFA RP"
+        },
+        {
+            "code": "0425-3795-9491",
+            "createdIn": "UEFN",
+            "creatorCode": "howtodoit",
+            "cursor": "MDQyNS0zNzk1LTk0OTE=",
+            "tags": [
+                "5v5",
+                "building",
+                "classes",
+                "6v6"
+            ],
+            "title": "soldier map for the og ones!"
+        },
+        {
+            "code": "3302-4720-6303",
+            "createdIn": "UEFN",
+            "creatorCode": "bibibobo",
+            "cursor": "MzMwMi00NzIwLTYzMDM=",
+            "tags": [
+                "6v6",
+                "board game",
+                "difficulty: impossible",
+                "heroes"
+            ],
+            "title": "trasport the gold diamond into the side"
+        },
+        {
+            "code": "2635-8483-0070",
+            "createdIn": "UEFN",
+            "creatorCode": "boyboy",
+            "cursor": "MjYzNS04NDgzLTAwNzA=",
+            "tags": [
+                "zonewars",
+                "free for all",
+                "pvp",
+                "solo"
+            ],
+            "title": "BORAHAE PILLARS 💜"
+        },
+        {
+            "code": "9565-6203-5746",
+            "createdIn": "FNC",
+            "creatorCode": "apsufn",
+            "cursor": "OTU2NS02MjAzLTU3NDY=",
+            "tags": [
+                "1v1",
+                "building"
+            ],
+            "title": "APSU 1V1 BUILDFIGHT"
+        },
+        {
+            "code": "7794-2145-5526",
+            "createdIn": "FNC",
+            "creatorCode": "simonemacchi",
+            "cursor": "Nzc5NC0yMTQ1LTU1MjY=",
+            "tags": [
+                "1v1"
+            ],
+            "title": "Auguri denise femmina auguri"
+        },
+        {
+            "code": "1766-2552-3669",
+            "createdIn": "FNC",
+            "creatorCode": "hazzrd",
+            "cursor": "MTc2Ni0yNTUyLTM2Njk=",
+            "tags": [
+                "1v1"
+            ],
+            "title": "hazzrd 1v1"
+        },
+        {
+            "code": "1466-0913-4559",
+            "createdIn": "UEFN",
+            "creatorCode": "bemouse",
+            "cursor": "MTQ2Ni0wOTEzLTQ1NTk=",
+            "tags": [
+                "parkour",
+                "platformer",
+                "skills",
+                "choices matter"
+            ],
+            "title": "BANK OR BURN: LAVA PARKOUR"
+        },
+        {
+            "code": "4019-5757-1636",
+            "createdIn": "UEFN",
+            "creatorCode": "krexo",
+            "cursor": "NDAxOS01NzU3LTE2MzY=",
+            "tags": [
+                "1v1"
+            ],
+            "title": "1v1 Spectate [KOV]"
+        },
+        {
+            "category": "TMNT",
+            "code": "0864-1971-2979",
+            "createdIn": "UEFN",
+            "creatorCode": "noahplay",
+            "cursor": "MDg2NC0xOTcxLTI5Nzk=",
+            "tags": [
+                "strategy",
+                "teams",
+                "just for fun",
+                "open world"
+            ],
+            "title": "TWO-TEAM BATTLE – TMNT WEAPONS ONLY"
+        },
+        {
+            "code": "7531-5853-5381",
+            "createdIn": "UEFN",
+            "creatorCode": "huskygamer0401",
+            "cursor": "NzUzMS01ODUzLTUzODE=",
+            "tags": [
+                "8v8",
+                "team deathmatch",
+                "arena",
+                "competitive"
+            ],
+            "title": "Shipment- Domination"
+        },
+        {
+            "code": "9851-2211-5622",
+            "createdIn": "UEFN",
+            "creatorCode": "tuyosantos",
+            "cursor": "OTg1MS0yMjExLTU2MjI=",
+            "tags": [
+                "1v1"
+            ],
+            "title": "TUYO 1V1 BUILD FIGHT"
+        },
+        {
+            "code": "2525-5985-9317",
+            "createdIn": "UEFN",
+            "creatorCode": "carrot17",
+            "cursor": "MjUyNS01OTg1LTkzMTc=",
+            "tags": [
+                "1v1",
+                "competitive",
+                "practice"
+            ],
+            "title": "carrotz 1v1"
+        },
+        {
+            "code": "8983-0382-8829",
+            "createdIn": "FNC",
+            "creatorCode": "05bonzo",
+            "cursor": "ODk4My0wMzgyLTg4Mjk=",
+            "tags": [
+                "3v3",
+                "trios",
+                "practice",
+                "training"
+            ],
+            "title": "TRIOS ZERO BUILD 💎"
+        },
+        {
+            "code": "1008-5099-1565",
+            "createdIn": "FNC",
+            "creatorCode": "veg3ta10",
+            "cursor": "MTAwOC01MDk5LTE1NjU=",
+            "tags": [
+                "deathrun",
+                "adventure",
+                "party game"
+            ],
+            "title": "Runner 2k27"
+        },
+        {
+            "code": "5189-7765-9801",
+            "createdIn": "UEFN",
+            "creatorCode": "ttvyx",
+            "cursor": "NTE4OS03NzY1LTk4MDE=",
+            "tags": [
+                "1v1"
+            ],
+            "title": "1V1 BUILD FIGHT VYX"
+        },
+        {
+            "code": "9847-2550-0658",
+            "createdIn": "UEFN",
+            "creatorCode": "lzprime1v5",
+            "cursor": "OTg0Ny0yNTUwLTA2NTg=",
+            "tags": [
+                "deathrun",
+                "strategy",
+                "skills",
+                "parkour"
+            ],
+            "title": "DEATHRUN 320 LEVELS EASY"
+        },
+        {
+            "code": "7791-7257-9402",
+            "createdIn": "UEFN",
+            "creatorCode": "maeske",
+            "cursor": "Nzc5MS03MjU3LTk0MDI=",
+            "tags": [
+                "1v1",
+                "arena"
+            ],
+            "title": "[LEGEND 2] NEW 1V1 BUILDFIGHT 🌌"
+        },
+        {
+            "code": "2950-6686-3271",
+            "createdIn": "FNC",
+            "creatorCode": "crunkest_angel20",
+            "cursor": "Mjk1MC02Njg2LTMyNzE=",
+            "tags": [
+                "deathrun",
+                "casual"
+            ],
+            "title": "Alien only up [halloween]"
+        },
+        {
+            "code": "6694-4196-3762",
+            "createdIn": "UEFN",
+            "creatorCode": "twixmaps",
+            "cursor": "NjY5NC00MTk2LTM3NjI=",
+            "tags": [
+                "escape",
+                "platformer",
+                "minigame",
+                "puzzle"
+            ],
+            "title": "🐒 Monkey Escape Room"
+        },
+        {
+            "code": "1137-8425-0391",
+            "createdIn": "FNC",
+            "creatorCode": "hekinhoo",
+            "cursor": "MTEzNy04NDI1LTAzOTE=",
+            "tags": [
+                "4v4",
+                "battle royale",
+                "pvp",
+                "building"
+            ],
+            "title": "Skybase Zonewars {Hekinhoo}"
+        },
+        {
+            "code": "7442-0362-1527",
+            "createdIn": "UEFN",
+            "creatorCode": "everybodytalks",
+            "cursor": "NzQ0Mi0wMzYyLTE1Mjc=",
+            "tags": [
+                "tycoon",
+                "simulator",
+                "casual",
+                "just for fun"
+            ],
+            "title": "+1 Aura for Brainrot"
+        },
+        {
+            "code": "8553-2125-8174",
+            "createdIn": "UEFN",
+            "creatorCode": "camaro_23",
+            "cursor": "ODU1My0yMTI1LTgxNzQ=",
+            "tags": [
+                "1v1",
+                "practice",
+                "free for all",
+                "pvp"
+            ],
+            "title": "GOAT 🐐 1V1V1"
+        },
+        {
+            "code": "8421-2808-5415",
+            "createdIn": "UEFN",
+            "creatorCode": "cjktv",
+            "cursor": "ODQyMS0yODA4LTU0MTU=",
+            "tags": [
+                "just for fun",
+                "shooter",
+                "pvp",
+                "minigame"
+            ],
+            "title": "nuketown minigame"
+        },
+        {
+            "code": "1305-5147-7092",
+            "createdIn": "FNC",
+            "creatorCode": "yaraelpoff",
+            "cursor": "MTMwNS01MTQ3LTcwOTI=",
+            "tags": [
+                "atmospheric",
+                "episodic",
+                "parkour",
+                "pixel art"
+            ],
+            "title": "Galactic Timeline Ep. 1"
+        },
+        {
+            "code": "2320-9271-1857",
+            "createdIn": "UEFN",
+            "creatorCode": "sleepinrio",
+            "cursor": "MjMyMC05MjcxLTE4NTc=",
+            "tags": [
+                "escape",
+                "minigame",
+                "party game",
+                "just for fun"
+            ],
+            "title": "😎 61 SIGMA ESCAPE ROOM"
+        },
+        {
+            "code": "7750-2243-7195",
+            "createdIn": "FNC",
+            "creatorCode": "rsxstudios",
+            "cursor": "Nzc1MC0yMjQzLTcxOTU=",
+            "tags": [
+                "parkour",
+                "deathrun",
+                "difficulty: hard",
+                "platformer"
+            ],
+            "title": "HARD PARKOUR🔥 (7111)"
+        },
+        {
+            "code": "6993-3746-0438",
+            "createdIn": "UEFN",
+            "creatorCode": "u75",
+            "cursor": "Njk5My0zNzQ2LTA0Mzg=",
+            "tags": [
+                "just for fun",
+                "minigame",
+                "party game",
+                "pvp"
+            ],
+            "title": "FISH FOR GUNS! 🎣 [FAST ROUNDS]"
+        },
+        {
+            "code": "7237-1572-2375",
+            "createdIn": "FNC",
+            "creatorCode": "ilwvy",
+            "cursor": "NzIzNy0xNTcyLTIzNzU=",
+            "tags": [
+                "skills",
+                "puzzle",
+                "parkour",
+                "race"
+            ],
+            "title": "Parkour iLwvy (0856)"
+        },
+        {
+            "category": "Star Wars",
+            "code": "9664-4023-1782",
+            "createdIn": "UEFN",
+            "creatorCode": "ablb",
+            "cursor": "OTY2NC00MDIzLTE3ODI=",
+            "tags": [
+                "battle",
+                "just for fun",
+                "free for all",
+                "action"
+            ],
+            "title": "CAR EXTREME STAR"
+        },
+        {
+            "code": "8178-8401-7535",
+            "createdIn": "UEFN",
+            "creatorCode": "bemouse",
+            "cursor": "ODE3OC04NDAxLTc1MzU=",
+            "tags": [
+                "pvp",
+                "party game",
+                "just for fun",
+                "action"
+            ],
+            "title": "Pillars: Race to the Top"
+        },
+        {
+            "code": "7683-0762-0989",
+            "createdIn": "FNC",
+            "creatorCode": "mother_fluffer22",
+            "cursor": "NzY4My0wNzYyLTA5ODk=",
+            "tags": [
+                "duo",
+                "escape",
+                "strategy",
+                "puzzle"
+            ],
+            "title": "Duo Escape - MK404"
+        },
+        {
+            "code": "7697-4894-7632",
+            "createdIn": "FNC",
+            "creatorCode": "slhq",
+            "cursor": "NzY5Ny00ODk0LTc2MzI=",
+            "tags": [
+                "shooter"
+            ],
+            "title": "SALEH 1V1V1"
+        },
+        {
+            "code": "5141-3375-0926",
+            "createdIn": "UEFN",
+            "creatorCode": "konnaz12",
+            "cursor": "NTE0MS0zMzc1LTA5MjY=",
+            "tags": [
+                "simulator",
+                "just for fun",
+                "tycoon"
+            ],
+            "title": "TSUNAMI BRAINROT"
+        },
+        {
+            "code": "2403-4303-4668",
+            "createdIn": "UEFN",
+            "creatorCode": "ethanxie",
+            "cursor": "MjQwMy00MzAzLTQ2Njg=",
+            "tags": [
+                "edit course",
+                "practice",
+                "building",
+                "strategy"
+            ],
+            "title": "PIECE TRAINING [PIECE CONTROL]"
+        },
+        {
+            "code": "4201-6416-6945",
+            "createdIn": "UEFN",
+            "creatorCode": "instant123",
+            "cursor": "NDIwMS02NDE2LTY5NDU=",
+            "tags": [
+                "aim course",
+                "single player",
+                "training",
+                "skills"
+            ],
+            "title": "RICOCHET: RUN \u0026 ARENA"
+        },
+        {
+            "code": "0520-5545-9065",
+            "createdIn": "UEFN",
+            "creatorCode": "n0vax",
+            "cursor": "MDUyMC01NTQ1LTkwNjU=",
+            "tags": [
+                "boss battle",
+                "co-op",
+                "just for fun",
+                "survival"
+            ],
+            "title": "ROLL OR DIE: BRAINROT TOWER 🎲"
+        },
+        {
+            "code": "2227-3683-7816",
+            "createdIn": "UEFN",
+            "creatorCode": "luda3559",
+            "cursor": "MjIyNy0zNjgzLTc4MTY=",
+            "tags": [
+                "horror",
+                "survival horror",
+                "first person",
+                "escape"
+            ],
+            "title": "ABDUCTION [HORROR]"
+        },
+        {
+            "category": "TMNT",
+            "code": "8573-0497-3144",
+            "createdIn": "UEFN",
+            "creatorCode": "ablb",
+            "cursor": "ODU3My0wNDk3LTMxNDQ=",
+            "tags": [
+                "race",
+                "just for fun",
+                "open world",
+                "pve"
+            ],
+            "title": "MEGA RAMP BIG RACE"
+        },
+        {
+            "category": "Star Wars",
+            "code": "2559-1304-6794",
+            "createdIn": "UEFN",
+            "creatorCode": "naizzzyeu",
+            "cursor": "MjU1OS0xMzA0LTY3OTQ=",
+            "tags": [
+                "team deathmatch",
+                "free for all",
+                "just for fun",
+                "pvp"
+            ],
+            "title": "SECRET RED VS BLUE"
+        },
+        {
+            "category": "STAR WARS",
+            "code": "5044-5426-6728",
+            "createdIn": "FNC",
+            "creatorCode": "sounds",
+            "cursor": "NTA0NC01NDI2LTY3Mjg=",
+            "tags": [
+                "gun game",
+                "one shot",
+                "team deathmatch",
+                "squad"
+            ],
+            "title": "Star Wars : One Shot Squad Gun Game"
+        },
+        {
+            "code": "6792-3452-2054",
+            "createdIn": "UEFN",
+            "creatorCode": "neokfn",
+            "cursor": "Njc5Mi0zNDUyLTIwNTQ=",
+            "tags": [
+                "free for all",
+                "respawn",
+                "funny",
+                "action"
+            ],
+            "title": "🍁 [RANKS!] Autum GunGame 🍁"
+        },
+        {
+            "code": "0026-7534-2946",
+            "createdIn": "UEFN",
+            "creatorCode": "xenoksde",
+            "cursor": "MDAyNi03NTM0LTI5NDY=",
+            "tags": [
+                "simulator",
+                "tycoon",
+                "just for fun",
+                "casual"
+            ],
+            "title": "Build Your Plane"
+        }
+    ]
+}
