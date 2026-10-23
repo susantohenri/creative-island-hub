@@ -181,7 +181,7 @@ Add:
 
 Privacy Policy button must open this external URL:
 
-https://tokiocv.blogspot.com/2026/07/privacy-policy.html
+https://susantohenri.github.io/privacy-policy
 
 Use Android's standard browser intent.
 
@@ -771,7 +771,7 @@ Before finishing, verify all of these:
 [ ] No accidental-click ad placement exists.
 
 [ ] Privacy Policy opens:
-https://tokiocv.blogspot.com/2026/07/privacy-policy.html
+https://susantohenri.github.io/privacy-policy
 
 [ ] About contains app version.
 

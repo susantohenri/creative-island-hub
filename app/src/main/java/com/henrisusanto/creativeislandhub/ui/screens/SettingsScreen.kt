@@ -99,11 +99,11 @@ fun SettingsScreen(
         // Privacy Policy Item
         ListItem(
             headlineContent = { Text(stringResource(R.string.settings_privacy_policy)) },
-            supportingContent = { Text("https://tokiocv.blogspot.com/2026/07/privacy-policy.html") },
+            supportingContent = { Text("https://susantohenri.github.io/privacy-policy") },
             modifier = Modifier.clickable {
                 val intent = Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://tokiocv.blogspot.com/2026/07/privacy-policy.html")
+                    Uri.parse("https://susantohenri.github.io/privacy-policy")
                 )
                 context.startActivity(intent)
             }
