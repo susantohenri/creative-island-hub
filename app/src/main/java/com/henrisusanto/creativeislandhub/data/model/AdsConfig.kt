@@ -13,8 +13,11 @@ data class AdsConfig(
 ) {
     companion object {
         val DEFAULT = AdsConfig(
-            bannerAdUnitId = "ca-app-pub-3940256099942544/6300978111", // Test Banner
-            rewardedAdUnitId = "ca-app-pub-3940256099942544/5224354917", // Test Rewarded
+            appOpenAdUnitId = "ca-app-pub-3360913653749022/7252831641",
+            bannerAdUnitId = "ca-app-pub-3360913653749022/1199307619",
+            interstitialAdUnitId = "ca-app-pub-3360913653749022/8071089297",
+            rewardedAdUnitId = "ca-app-pub-3360913653749022/3278549739",
+            nativeAdUnitId = "ca-app-pub-3360913653749022/2747444572",
             isAdsEnabled = true
         )
     }

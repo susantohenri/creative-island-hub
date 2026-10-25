@@ -20,10 +20,10 @@
         android:theme="@style/Theme.CreativeIslandHub"
         tools:targetApi="36">
         
-        <!-- AdMob App ID (Sample for Development) -->
+        <!-- AdMob App ID -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="ca-app-pub-3360913653749022~3924794879" />
 
         <activity
             android:name=".MainActivity"
