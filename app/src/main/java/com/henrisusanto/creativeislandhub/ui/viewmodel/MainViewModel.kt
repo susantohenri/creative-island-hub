@@ -3,6 +3,7 @@ package com.henrisusanto.creativeislandhub.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.henrisusanto.creativeislandhub.ads.AdManager
+import com.henrisusanto.creativeislandhub.analytics.AnalyticsLogger
 import com.henrisusanto.creativeislandhub.data.model.AdsConfig
 import com.henrisusanto.creativeislandhub.data.model.Island
 import com.henrisusanto.creativeislandhub.data.repository.IslandRepository
@@ -85,6 +86,18 @@ class MainViewModel(
     init {
         fetchData()
         preloadAdsWhenReady()
+        observeSearchQuery()
+    }
+
+    private fun observeSearchQuery() {
+        viewModelScope.launch {
+            debouncedSearchQuery.collect { query ->
+                val trimmed = query.trim()
+                if (trimmed.length >= 3) {
+                    AnalyticsLogger.logSearch(trimmed)
+                }
+            }
+        }
     }
 
     private fun preloadAdsWhenReady() {

@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.henrisusanto.creativeislandhub.R
+import com.henrisusanto.creativeislandhub.analytics.AnalyticsLogger
 import com.henrisusanto.creativeislandhub.data.model.Island
 
 @Composable
@@ -194,7 +195,7 @@ fun IslandCard(
                                     )
                                     Row {
                                         TextButton(onClick = {
-                                            copyToClipboard(context, island.code)
+                                            copyToClipboard(context, island.title, island.code)
                                         }) {
                                             Text(stringResource(R.string.action_copy))
                                         }
@@ -214,10 +215,11 @@ fun IslandCard(
     }
 }
 
-private fun copyToClipboard(context: Context, text: String) {
+private fun copyToClipboard(context: Context, title: String, text: String) {
     val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     val clip = ClipData.newPlainText("Island Code", text)
     clipboard.setPrimaryClip(clip)
+    AnalyticsLogger.logCopyCode(islandCode = text, islandTitle = title)
     Toast.makeText(context, context.getString(R.string.msg_copied), Toast.LENGTH_SHORT).show()
 }
 
@@ -227,6 +229,7 @@ private fun shareCode(context: Context, title: String, code: String) {
         putExtra(Intent.EXTRA_TEXT, "$title\nIsland Code: $code")
         type = "text/plain"
     }
+    AnalyticsLogger.logShareCode(islandCode = code, islandTitle = title)
     val shareIntent = Intent.createChooser(sendIntent, null)
     context.startActivity(shareIntent)
 }

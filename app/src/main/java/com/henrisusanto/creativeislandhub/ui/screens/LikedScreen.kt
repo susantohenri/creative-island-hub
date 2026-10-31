@@ -13,6 +13,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.henrisusanto.creativeislandhub.R
+import com.henrisusanto.creativeislandhub.analytics.AnalyticsLogger
 import com.henrisusanto.creativeislandhub.ui.components.BannerAdView
 import com.henrisusanto.creativeislandhub.ui.components.IslandCard
 import com.henrisusanto.creativeislandhub.ui.viewmodel.MainViewModel
@@ -56,7 +57,10 @@ fun LikedScreen(
                         isUnlocked = unlockedIslands.contains(island.code),
                         isLiked = true,
                         onUnlockClick = { showUnlockDialog = island.code },
-                        onLikeClick = { viewModel.toggleLike(island.code) },
+                        onLikeClick = {
+                            viewModel.toggleLike(island.code)
+                            AnalyticsLogger.logToggleLike(island.code, isLikedNow = false)
+                        },
                         onTagClick = { tag -> viewModel.updateSearchQuery(tag) }
                     )
                 }
@@ -85,7 +89,15 @@ fun LikedScreen(
                                     viewModel.adManager.loadAndShowRewardedAd(
                                         activity = activity,
                                         adUnitId = adsConfig.rewardedAdUnitId!!,
-                                        onRewardEarned = { viewModel.unlockIsland(codeToUnlock) },
+                                        onRewardEarned = {
+                                            viewModel.unlockIsland(codeToUnlock)
+                                            val targetIsland = likedItems.find { it.code == codeToUnlock }
+                                            AnalyticsLogger.logUnlockCode(
+                                                islandCode = codeToUnlock,
+                                                islandTitle = targetIsland?.title,
+                                                category = targetIsland?.category
+                                            )
+                                        },
                                         onAdClosed = {},
                                         onFailed = {
                                             Toast.makeText(
@@ -98,6 +110,12 @@ fun LikedScreen(
                                 }
                             } else {
                                 viewModel.unlockIsland(codeToUnlock)
+                                val targetIsland = likedItems.find { it.code == codeToUnlock }
+                                AnalyticsLogger.logUnlockCode(
+                                    islandCode = codeToUnlock,
+                                    islandTitle = targetIsland?.title,
+                                    category = targetIsland?.category
+                                )
                             }
                         }
                     }

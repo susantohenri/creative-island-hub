@@ -214,4 +214,114 @@ object AnalyticsLogger {
             Log.e(TAG, "Failed to log ad_failed", e)
         }
     }
+
+    /**
+     * Logs core feature event: unlock_code when an island code is unlocked via rewarded ad or directly.
+     */
+    fun logUnlockCode(islandCode: String, islandTitle: String?, category: String?) {
+        if (islandCode.isBlank()) return
+        try {
+            val bundle = Bundle().apply {
+                putString("island_code", islandCode)
+                if (!islandTitle.isNullOrBlank()) {
+                    putString("island_title", islandTitle)
+                }
+                if (!category.isNullOrBlank()) {
+                    putString("category", category)
+                }
+            }
+            firebaseAnalytics?.logEvent("unlock_code", bundle)
+            Log.d(TAG, "Unlock code logged: $islandCode ($islandTitle)")
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to log unlock_code", e)
+        }
+    }
+
+    /**
+     * Logs core feature event: copy_code when user copies island code to clipboard.
+     */
+    fun logCopyCode(islandCode: String, islandTitle: String?) {
+        if (islandCode.isBlank()) return
+        try {
+            val bundle = Bundle().apply {
+                putString("island_code", islandCode)
+                if (!islandTitle.isNullOrBlank()) {
+                    putString("island_title", islandTitle)
+                }
+            }
+            firebaseAnalytics?.logEvent("copy_code", bundle)
+            Log.d(TAG, "Copy code logged: $islandCode")
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to log copy_code", e)
+        }
+    }
+
+    /**
+     * Logs core feature event: share when user shares island code via Android Sharesheet.
+     */
+    fun logShareCode(islandCode: String, islandTitle: String?) {
+        if (islandCode.isBlank()) return
+        try {
+            val bundle = Bundle().apply {
+                putString(FirebaseAnalytics.Param.CONTENT_TYPE, "island_code")
+                putString(FirebaseAnalytics.Param.ITEM_ID, islandCode)
+                if (!islandTitle.isNullOrBlank()) {
+                    putString("island_title", islandTitle)
+                }
+            }
+            firebaseAnalytics?.logEvent(FirebaseAnalytics.Event.SHARE, bundle)
+            Log.d(TAG, "Share code logged: $islandCode ($islandTitle)")
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to log share", e)
+        }
+    }
+
+    /**
+     * Logs core feature event: toggle_like when user likes or unlikes an island.
+     */
+    fun logToggleLike(islandCode: String, isLikedNow: Boolean) {
+        if (islandCode.isBlank()) return
+        try {
+            val bundle = Bundle().apply {
+                putString("island_code", islandCode)
+                putString("action", if (isLikedNow) "like" else "unlike")
+            }
+            firebaseAnalytics?.logEvent("toggle_like", bundle)
+            Log.d(TAG, "Toggle like logged: $islandCode, action=${if (isLikedNow) "like" else "unlike"}")
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to log toggle_like", e)
+        }
+    }
+
+    /**
+     * Logs standard search event when user searches for islands.
+     */
+    fun logSearch(query: String) {
+        if (query.isBlank()) return
+        try {
+            val bundle = Bundle().apply {
+                putString(FirebaseAnalytics.Param.SEARCH_TERM, query)
+            }
+            firebaseAnalytics?.logEvent(FirebaseAnalytics.Event.SEARCH, bundle)
+            Log.d(TAG, "Search logged: $query")
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to log search", e)
+        }
+    }
+
+    /**
+     * Logs core feature event: select_category when user filters by category.
+     */
+    fun logSelectCategory(category: String?) {
+        val categoryName = if (category.isNullOrBlank()) "all" else category
+        try {
+            val bundle = Bundle().apply {
+                putString("category_name", categoryName)
+            }
+            firebaseAnalytics?.logEvent("select_category", bundle)
+            Log.d(TAG, "Select category logged: $categoryName")
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to log select_category", e)
+        }
+    }
 }

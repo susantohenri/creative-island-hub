@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.henrisusanto.creativeislandhub.R
+import com.henrisusanto.creativeislandhub.analytics.AnalyticsLogger
 import com.henrisusanto.creativeislandhub.ui.components.BannerAdView
 import com.henrisusanto.creativeislandhub.ui.viewmodel.MainViewModel
 
@@ -38,6 +39,7 @@ fun CategoriesScreen(
                     isSelected = selectedCategory == null,
                     onClick = {
                         viewModel.selectCategory(null)
+                        AnalyticsLogger.logSelectCategory("all")
                         onCategoryClick?.invoke()
                     }
                 )
@@ -49,6 +51,7 @@ fun CategoriesScreen(
                     isSelected = selectedCategory == category,
                     onClick = {
                         viewModel.selectCategory(category)
+                        AnalyticsLogger.logSelectCategory(category)
                         onCategoryClick?.invoke()
                     }
                 )
