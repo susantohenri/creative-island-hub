@@ -13,6 +13,7 @@ import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import com.google.android.ump.ConsentInformation
 import com.google.android.ump.ConsentRequestParameters
 import com.google.android.ump.UserMessagingPlatform
+import com.henrisusanto.creativeislandhub.analytics.AnalyticsLogger
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -92,9 +93,21 @@ class AdManager(private val context: Context) {
 
         _isAdLoading.value = true
         val adRequest = AdRequest.Builder().build()
+        val screen = AnalyticsLogger.getCurrentScreen() ?: "unknown"
+        AnalyticsLogger.logAdRequest(
+            adUnitId = adUnitId,
+            adFormat = "REWARDED",
+            screen = screen
+        )
         RewardedAd.load(context, adUnitId, adRequest, object : RewardedAdLoadCallback() {
             override fun onAdFailedToLoad(adError: LoadAdError) {
                 Log.d(TAG, "RewardedAd failed to load: ${adError.message}")
+                AnalyticsLogger.logAdFailed(
+                    adUnitId = adUnitId,
+                    adFormat = "REWARDED",
+                    errorCode = adError.code,
+                    screen = AnalyticsLogger.getCurrentScreen() ?: screen
+                )
                 rewardedAd = null
                 _isRewardedAdReady.value = false
                 _isAdLoading.value = false
@@ -103,6 +116,19 @@ class AdManager(private val context: Context) {
 
             override fun onAdLoaded(ad: RewardedAd) {
                 Log.d(TAG, "RewardedAd loaded successfully.")
+                ad.setOnPaidEventListener { adValue ->
+                    val adSource = ad.responseInfo.loadedAdapterResponseInfo?.adSourceName
+                        ?: ad.responseInfo.mediationAdapterClassName
+                    AnalyticsLogger.logAdImpression(
+                        adUnitId = adUnitId,
+                        adFormat = "REWARDED",
+                        adSource = adSource,
+                        screen = AnalyticsLogger.getCurrentScreen() ?: screen,
+                        currency = adValue.currencyCode,
+                        value = adValue.valueMicros / 1_000_000.0
+                    )
+                }
+
                 rewardedAd = ad
                 _isRewardedAdReady.value = true
                 _isAdLoading.value = false
@@ -120,6 +146,15 @@ class AdManager(private val context: Context) {
         val ad = rewardedAd
         if (ad != null) {
             ad.fullScreenContentCallback = object : FullScreenContentCallback() {
+                override fun onAdClicked() {
+                    Log.d(TAG, "RewardedAd clicked.")
+                    AnalyticsLogger.logAdClick(
+                        adUnitId = currentRewardedAdUnitId ?: "",
+                        adFormat = "REWARDED",
+                        screen = AnalyticsLogger.getCurrentScreen() ?: "unknown"
+                    )
+                }
+
                 override fun onAdDismissedFullScreenContent() {
                     Log.d(TAG, "RewardedAd dismissed.")
                     rewardedAd = null

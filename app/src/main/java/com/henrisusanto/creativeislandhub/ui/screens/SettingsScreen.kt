@@ -118,7 +118,12 @@ fun SettingsScreen(
                     Text(
                         text = stringResource(R.string.version_label, BuildConfig.VERSION_NAME),
                         style = MaterialTheme.typography.bodyMedium,
-                        fontWeight = FontWeight.Medium
+                        fontWeight = FontWeight.Medium,
+                        modifier = if (BuildConfig.DEBUG) {
+                            Modifier.clickable {
+                                throw RuntimeException("Test Crashlytics Crash - Creative Island Hub Debug")
+                            }
+                        } else Modifier
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(

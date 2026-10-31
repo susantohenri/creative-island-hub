@@ -19,12 +19,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.core.os.LocaleListCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.henrisusanto.creativeislandhub.analytics.AnalyticsLogger
 import com.henrisusanto.creativeislandhub.ui.screens.CategoriesScreen
 import com.henrisusanto.creativeislandhub.ui.screens.HomeScreen
 import com.henrisusanto.creativeislandhub.ui.screens.LikedScreen
@@ -103,6 +105,25 @@ sealed class Screen(val route: String, val icon: androidx.compose.ui.graphics.ve
 fun MainScreen(viewModel: MainViewModel) {
     val navController = rememberNavController()
     val items = listOf(Screen.Home, Screen.Liked, Screen.Categories, Screen.Settings)
+
+    // Manual screen tracking with anti-duplication
+    DisposableEffect(navController) {
+        val listener = NavController.OnDestinationChangedListener { _, destination, _ ->
+            val route = destination.route ?: return@OnDestinationChangedListener
+            val screenName = when (route) {
+                Screen.Home.route -> "home"
+                Screen.Liked.route -> "liked"
+                Screen.Categories.route -> "categories"
+                Screen.Settings.route -> "settings"
+                else -> route.lowercase()
+            }
+            AnalyticsLogger.logScreenView(screenName = screenName, screenClass = "MainActivity")
+        }
+        navController.addOnDestinationChangedListener(listener)
+        onDispose {
+            navController.removeOnDestinationChangedListener(listener)
+        }
+    }
 
     Scaffold(
         bottomBar = {

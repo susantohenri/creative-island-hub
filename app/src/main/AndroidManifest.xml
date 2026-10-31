@@ -25,6 +25,17 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3360913653749022~3924794879" />
 
+        <!-- Disable automatic Activity screen tracking to prevent duplicates with Compose screens -->
+        <meta-data
+            android:name="google_analytics_automatic_screen_reporting_enabled"
+            android:value="false" />
+
+        <!-- Resolve AdServices config clash between AdMob and Firebase Analytics -->
+        <property
+            android:name="android.adservices.AD_SERVICES_CONFIG"
+            android:resource="@xml/gma_ad_services_config"
+            tools:replace="android:resource" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
