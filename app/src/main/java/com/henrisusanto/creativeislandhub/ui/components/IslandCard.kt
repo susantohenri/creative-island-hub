@@ -193,16 +193,22 @@ fun IslandCard(
                                         fontWeight = FontWeight.Bold,
                                         color = MaterialTheme.colorScheme.onSecondaryContainer
                                     )
-                                    Row {
-                                        TextButton(onClick = {
+                                    Row(verticalAlignment = Alignment.CenterVertically) {
+                                        IconButton(onClick = {
                                             copyToClipboard(context, island.title, island.code)
                                         }) {
-                                            Text(stringResource(R.string.action_copy))
+                                            Icon(
+                                                painter = painterResource(R.drawable.ic_copy),
+                                                contentDescription = stringResource(R.string.action_copy)
+                                            )
                                         }
                                         IconButton(onClick = {
                                             shareCode(context, island.title, island.code)
                                         }) {
-                                            Icon(Icons.Default.Share, contentDescription = "Share")
+                                            Icon(
+                                                imageVector = Icons.Default.Share,
+                                                contentDescription = stringResource(R.string.action_share)
+                                            )
                                         }
                                     }
                                 }

@@ -27,7 +27,7 @@ class IslandRepository(
     suspend fun fetchIslands() {
         try {
             val response = remoteDataSource.getIslands()
-            _islands.value = response.data
+            _islands.value = response.data.shuffled()
         } catch (e: Exception) {
             e.printStackTrace()
             throw e
