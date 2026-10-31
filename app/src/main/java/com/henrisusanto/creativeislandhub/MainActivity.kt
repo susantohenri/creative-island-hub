@@ -90,6 +90,7 @@ class MainActivity : ComponentActivity() {
         val currentLocales = AppCompatDelegate.getApplicationLocales()
         if (!currentLocales.toLanguageTags().contains(targetLocaleTag)) {
             AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(targetLocaleTag))
+            AnalyticsLogger.updateUserProperties(this)
         }
     }
 }

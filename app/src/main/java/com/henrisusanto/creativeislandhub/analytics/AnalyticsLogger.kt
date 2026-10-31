@@ -3,10 +3,12 @@ package com.henrisusanto.creativeislandhub.analytics
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.bundleOf
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.henrisusanto.creativeislandhub.BuildConfig
+import java.util.Locale
 
 object AnalyticsLogger {
     private const val TAG = "AnalyticsLogger"
@@ -38,6 +40,9 @@ object AnalyticsLogger {
             crashlytics.setCrashlyticsCollectionEnabled(true)
             crashlytics.setCustomKey("app_version", BuildConfig.VERSION_NAME)
             firebaseCrashlytics = crashlytics
+
+            // 3. User Properties (language, country, engagement_level)
+            updateUserProperties(appContext)
 
             Log.d(TAG, "Analytics & Crashlytics initialized. app_version=${BuildConfig.VERSION_NAME}")
         } catch (e: Exception) {
@@ -322,6 +327,78 @@ object AnalyticsLogger {
             Log.d(TAG, "Select category logged: $categoryName")
         } catch (e: Exception) {
             Log.e(TAG, "Failed to log select_category", e)
+        }
+    }
+
+    /**
+     * Updates user properties (language, country, engagement_level).
+     * Avoids redundant updates by comparing with cached values in SharedPreferences.
+     * Does NOT collect sensitive personal data (PII) or GPS locations.
+     */
+    fun updateUserProperties(context: Context) {
+        try {
+            val appContext = context.applicationContext
+            val prefs = appContext.getSharedPreferences("analytics_user_properties", Context.MODE_PRIVATE)
+
+            // 1. Language & Country from app locale or device locale
+            val appLocales = AppCompatDelegate.getApplicationLocales()
+            val effectiveLocale = if (!appLocales.isEmpty) {
+                appLocales[0] ?: Locale.getDefault()
+            } else {
+                Locale.getDefault()
+            }
+
+            val language = effectiveLocale.language.ifBlank { Locale.getDefault().language.ifBlank { "unknown" } }
+            val country = effectiveLocale.country.ifBlank { Locale.getDefault().country.ifBlank { "unknown" } }
+
+            val lastLanguage = prefs.getString("user_prop_language", null)
+            if (lastLanguage != language) {
+                setUserProperty("language", language)
+                prefs.edit().putString("user_prop_language", language).apply()
+            }
+
+            val lastCountry = prefs.getString("user_prop_country", null)
+            if (lastCountry != country) {
+                setUserProperty("country", country)
+                prefs.edit().putString("user_prop_country", country).apply()
+            }
+
+            // 2. Engagement Level
+            val now = System.currentTimeMillis()
+            val oneDayMillis = 24 * 60 * 60 * 1000L
+            val sevenDaysMillis = 7 * oneDayMillis
+
+            val firstSeen = prefs.getLong("first_seen_timestamp", 0L)
+            val lastSeen = prefs.getLong("last_seen_timestamp", 0L)
+
+            val engagementLevel = if (firstSeen == 0L) {
+                // First launch
+                prefs.edit()
+                    .putLong("first_seen_timestamp", now)
+                    .putLong("last_seen_timestamp", now)
+                    .apply()
+                "new"
+            } else {
+                val timeSinceFirst = now - firstSeen
+                val timeSinceLast = now - lastSeen
+                val level = when {
+                    timeSinceFirst <= oneDayMillis -> "new"
+                    timeSinceLast <= sevenDaysMillis -> "active"
+                    else -> "dormant"
+                }
+                prefs.edit().putLong("last_seen_timestamp", now).apply()
+                level
+            }
+
+            val lastEngagementLevel = prefs.getString("user_prop_engagement_level", null)
+            if (lastEngagementLevel != engagementLevel) {
+                setUserProperty("engagement_level", engagementLevel)
+                prefs.edit().putString("user_prop_engagement_level", engagementLevel).apply()
+            }
+
+            Log.d(TAG, "User properties evaluated: language=$language, country=$country, engagement_level=$engagementLevel")
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to update user properties", e)
         }
     }
 }
