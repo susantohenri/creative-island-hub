@@ -4,13 +4,17 @@ import android.app.Activity
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.henrisusanto.creativeislandhub.R
 import com.henrisusanto.creativeislandhub.analytics.AnalyticsLogger
@@ -30,11 +34,16 @@ fun HomeScreen(
     val unlockedIslands by viewModel.unlockedIslands.collectAsState()
     val likedIslands by viewModel.likedIslands.collectAsState()
     val searchQuery by viewModel.searchQuery.collectAsState()
+    val selectedCategory by viewModel.selectedCategory.collectAsState()
     val adsConfig by viewModel.adsConfig.collectAsState()
     val isAdLoading by viewModel.adManager.isAdLoading.collectAsState()
     
     val context = LocalContext.current
     var showUnlockDialog by remember { mutableStateOf<String?>(null) }
+
+    val quickFilterKeywords = remember {
+        listOf("UEFN", "PVP", "Boxfight", "Zero Build", "Battle Royale", "Parkour", "Adventure")
+    }
 
     Column(modifier = modifier.fillMaxSize()) {
         OutlinedTextField(
@@ -42,10 +51,52 @@ fun HomeScreen(
             onValueChange = viewModel::updateSearchQuery,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 8.dp),
             placeholder = { Text(stringResource(R.string.search_hint)) },
+            leadingIcon = {
+                Icon(
+                    imageVector = Icons.Default.Search,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            },
             singleLine = true
         )
+
+        // Quick Category Chips for high-intent keywords
+        LazyRow(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 4.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            item {
+                FilterChip(
+                    selected = selectedCategory == null,
+                    onClick = {
+                        viewModel.selectCategory(null)
+                        AnalyticsLogger.logSelectCategory("all")
+                    },
+                    label = { Text(stringResource(R.string.category_all)) }
+                )
+            }
+            items(quickFilterKeywords) { category ->
+                val isSelected = selectedCategory?.equals(category, ignoreCase = true) == true
+                FilterChip(
+                    selected = isSelected,
+                    onClick = {
+                        if (isSelected) {
+                            viewModel.selectCategory(null)
+                            AnalyticsLogger.logSelectCategory("all")
+                        } else {
+                            viewModel.selectCategory(category)
+                            AnalyticsLogger.logSelectCategory(category)
+                        }
+                    },
+                    label = { Text(category) }
+                )
+            }
+        }
 
         if (isLoading) {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -62,6 +113,37 @@ fun HomeScreen(
                 Button(onClick = { viewModel.fetchData() }) {
                     Text(stringResource(R.string.action_retry))
                 }
+            }
+        } else if (islands.isEmpty()) {
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth()
+                    .padding(32.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Search,
+                        contentDescription = null,
+                        modifier = Modifier.size(64.dp),
+                        tint = MaterialTheme.colorScheme.outline
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(
+                        text = stringResource(R.string.msg_empty_search),
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = TextAlign.Center
+                    )
+                }
+            }
+            
+            if (adsConfig.isAdsEnabled && adsConfig.bannerAdUnitId != null) {
+                BannerAdView(adUnitId = adsConfig.bannerAdUnitId!!)
             }
         } else {
             LazyColumn(

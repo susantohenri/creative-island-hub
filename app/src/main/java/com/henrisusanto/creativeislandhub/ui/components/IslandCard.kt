@@ -230,9 +230,10 @@ private fun copyToClipboard(context: Context, title: String, text: String) {
 }
 
 private fun shareCode(context: Context, title: String, code: String) {
+    val shareBody = context.getString(R.string.share_template, title, code)
     val sendIntent: Intent = Intent().apply {
         action = Intent.ACTION_SEND
-        putExtra(Intent.EXTRA_TEXT, "$title\nIsland Code: $code")
+        putExtra(Intent.EXTRA_TEXT, shareBody)
         type = "text/plain"
     }
     AnalyticsLogger.logShareCode(islandCode = code, islandTitle = title)

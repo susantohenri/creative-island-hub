@@ -41,5 +41,8 @@
     
     <string name="disclaimer_about">Aplikasi ini adalah utilitas independen buatan penggemar dan tidak berafiliasi dengan, didukung oleh, atau disponsori oleh Epic Games.</string>
     
-    <string name="search_hint">Cari island, kode, kreator, tag…</string>
+    <string name="search_hint">Cari kode island Fortnite, map, kreator…</string>
+    <string name="msg_empty_search">Island Fortnite Creative tidak ditemukan.\nCoba cari PVP, Boxfight, atau UEFN.</string>
+    <string name="share_template">%1$s — Kode Island Fortnite Creative: %2$s\n\nTemukan lebih banyak kode island di Creative Island Hub:\nhttps://play.google.com/store/apps/details?id=com.henrisusanto.creativeislandhub</string>
+    <string name="category_all">Semua</string>
 </resources>

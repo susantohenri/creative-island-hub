@@ -40,14 +40,20 @@ class RemoteDataSource(private val client: OkHttpClient) {
                     .build()
                 remoteConfig.setConfigSettingsAsync(configSettings)
 
-                // In-app default fallback parameters
+                // In-app default fallback parameters (support both snake_case and camelCase)
                 val defaults = mapOf<String, Any>(
                     "is_ads_enabled" to AdsConfig.DEFAULT.isAdsEnabled,
+                    "isAdsEnabled" to AdsConfig.DEFAULT.isAdsEnabled,
                     "banner_ad_unit_id" to (AdsConfig.DEFAULT.bannerAdUnitId ?: ""),
+                    "bannerAdUnitId" to (AdsConfig.DEFAULT.bannerAdUnitId ?: ""),
                     "rewarded_ad_unit_id" to (AdsConfig.DEFAULT.rewardedAdUnitId ?: ""),
+                    "rewardedAdUnitId" to (AdsConfig.DEFAULT.rewardedAdUnitId ?: ""),
                     "interstitial_ad_unit_id" to (AdsConfig.DEFAULT.interstitialAdUnitId ?: ""),
+                    "interstitialAdUnitId" to (AdsConfig.DEFAULT.interstitialAdUnitId ?: ""),
                     "app_open_ad_unit_id" to (AdsConfig.DEFAULT.appOpenAdUnitId ?: ""),
-                    "native_ad_unit_id" to (AdsConfig.DEFAULT.nativeAdUnitId ?: "")
+                    "appOpenAdUnitId" to (AdsConfig.DEFAULT.appOpenAdUnitId ?: ""),
+                    "native_ad_unit_id" to (AdsConfig.DEFAULT.nativeAdUnitId ?: ""),
+                    "nativeAdUnitId" to (AdsConfig.DEFAULT.nativeAdUnitId ?: "")
                 )
                 remoteConfig.setDefaultsAsync(defaults)
 
@@ -55,26 +61,53 @@ class RemoteDataSource(private val client: OkHttpClient) {
                     try {
                         if (continuation.isCancelled) return@addOnCompleteListener
 
-                        // 1. Check if complete JSON blob "ads_config" is provided in console
-                        val jsonConfig = remoteConfig.getString("ads_config")
+                        // 1. Check if complete JSON blob "ads_config" or "adsConfig" is provided in console
+                        val jsonConfig = remoteConfig.getString("ads_config").ifBlank {
+                            remoteConfig.getString("adsConfig")
+                        }
                         if (jsonConfig.isNotBlank() && jsonConfig != "{}") {
                             val parsed = json.decodeFromString<AdsConfig>(jsonConfig)
+                            Log.d("RemoteDataSource", "Loaded AdsConfig from JSON blob: $parsed")
                             continuation.resume(parsed)
                             return@addOnCompleteListener
                         }
 
-                        // 2. Otherwise read individual Remote Config parameters
-                        val isAdsEnabled = if (remoteConfig.getString("is_ads_enabled").isNotBlank()) {
-                            remoteConfig.getBoolean("is_ads_enabled")
-                        } else {
-                            AdsConfig.DEFAULT.isAdsEnabled
+                        // Helper to get string value supporting snake_case or camelCase
+                        fun getStringConfig(snakeKey: String, camelKey: String): String {
+                            val snakeVal = remoteConfig.getValue(snakeKey)
+                            if (snakeVal.source == FirebaseRemoteConfig.VALUE_SOURCE_REMOTE) {
+                                return snakeVal.asString()
+                            }
+                            val camelVal = remoteConfig.getValue(camelKey)
+                            if (camelVal.source == FirebaseRemoteConfig.VALUE_SOURCE_REMOTE) {
+                                return camelVal.asString()
+                            }
+                            // Fallback to whichever is non-blank (e.g. from in-app defaults)
+                            val snakeStr = snakeVal.asString()
+                            if (snakeStr.isNotBlank()) return snakeStr
+                            return camelVal.asString()
                         }
 
-                        val banner = remoteConfig.getString("banner_ad_unit_id").ifBlank { AdsConfig.DEFAULT.bannerAdUnitId }
-                        val rewarded = remoteConfig.getString("rewarded_ad_unit_id").ifBlank { AdsConfig.DEFAULT.rewardedAdUnitId }
-                        val interstitial = remoteConfig.getString("interstitial_ad_unit_id").ifBlank { AdsConfig.DEFAULT.interstitialAdUnitId }
-                        val appOpen = remoteConfig.getString("app_open_ad_unit_id").ifBlank { AdsConfig.DEFAULT.appOpenAdUnitId }
-                        val native = remoteConfig.getString("native_ad_unit_id").ifBlank { AdsConfig.DEFAULT.nativeAdUnitId }
+                        // Helper to get boolean value supporting snake_case or camelCase
+                        fun getBooleanConfig(snakeKey: String, camelKey: String, default: Boolean): Boolean {
+                            val snakeVal = remoteConfig.getValue(snakeKey)
+                            if (snakeVal.source == FirebaseRemoteConfig.VALUE_SOURCE_REMOTE) {
+                                return snakeVal.asBoolean()
+                            }
+                            val camelVal = remoteConfig.getValue(camelKey)
+                            if (camelVal.source == FirebaseRemoteConfig.VALUE_SOURCE_REMOTE) {
+                                return camelVal.asBoolean()
+                            }
+                            return default
+                        }
+
+                        // 2. Read individual Remote Config parameters with dual snake_case & camelCase support
+                        val isAdsEnabled = getBooleanConfig("is_ads_enabled", "isAdsEnabled", AdsConfig.DEFAULT.isAdsEnabled)
+                        val banner = getStringConfig("banner_ad_unit_id", "bannerAdUnitId").ifBlank { AdsConfig.DEFAULT.bannerAdUnitId }
+                        val rewarded = getStringConfig("rewarded_ad_unit_id", "rewardedAdUnitId").ifBlank { AdsConfig.DEFAULT.rewardedAdUnitId }
+                        val interstitial = getStringConfig("interstitial_ad_unit_id", "interstitialAdUnitId").ifBlank { AdsConfig.DEFAULT.interstitialAdUnitId }
+                        val appOpen = getStringConfig("app_open_ad_unit_id", "appOpenAdUnitId").ifBlank { AdsConfig.DEFAULT.appOpenAdUnitId }
+                        val native = getStringConfig("native_ad_unit_id", "nativeAdUnitId").ifBlank { AdsConfig.DEFAULT.nativeAdUnitId }
 
                         val config = AdsConfig(
                             appOpenAdUnitId = appOpen,
@@ -84,6 +117,7 @@ class RemoteDataSource(private val client: OkHttpClient) {
                             nativeAdUnitId = native,
                             isAdsEnabled = isAdsEnabled
                         )
+                        Log.d("RemoteDataSource", "Loaded AdsConfig from Remote Config params: $config")
                         continuation.resume(config)
                     } catch (e: Exception) {
                         Log.e("RemoteDataSource", "Failed to parse remote config, fallback to default", e)

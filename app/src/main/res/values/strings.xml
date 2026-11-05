@@ -41,5 +41,8 @@
     
     <string name="disclaimer_about">This app is an independent fan-made utility and is not affiliated with, endorsed by, or sponsored by Epic Games.</string>
     
-    <string name="search_hint">Search islands, codes, creators, tags…</string>
+    <string name="search_hint">Search Fortnite island codes, maps, creators…</string>
+    <string name="msg_empty_search">No Fortnite Creative islands found.\nTry searching for PVP, Boxfight, or UEFN.</string>
+    <string name="share_template">%1$s — Fortnite Creative Island Code: %2$s\n\nDiscover more island codes on Creative Island Hub:\nhttps://play.google.com/store/apps/details?id=com.henrisusanto.creativeislandhub</string>
+    <string name="category_all">All</string>
 </resources>

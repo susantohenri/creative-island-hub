@@ -64,10 +64,12 @@ class MainViewModel(
                 island.code.contains(cleanQuery, ignoreCase = true) ||
                 (island.creatorCode?.contains(cleanQuery, ignoreCase = true) == true) ||
                 (island.category?.contains(cleanQuery, ignoreCase = true) == true) ||
+                (island.createdIn?.contains(cleanQuery, ignoreCase = true) == true) ||
                 island.tags.any { it.contains(cleanQuery, ignoreCase = true) }
 
             val matchesCategory = category == null ||
                 island.category?.equals(category, ignoreCase = true) == true ||
+                island.createdIn?.equals(category, ignoreCase = true) == true ||
                 island.tags.any { it.equals(category, ignoreCase = true) }
 
             matchesQuery && matchesCategory
@@ -78,6 +80,7 @@ class MainViewModel(
         islands.flatMap { island ->
             val list = mutableListOf<String>()
             island.category?.let { list.add(it) }
+            island.createdIn?.let { list.add(it) }
             list.addAll(island.tags)
             list
         }.filter { it.isNotBlank() }.distinct().sorted()
