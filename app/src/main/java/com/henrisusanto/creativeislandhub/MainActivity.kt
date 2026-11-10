@@ -46,11 +46,13 @@ class MainActivity : ComponentActivity() {
         
         // Setup UMP & Ads
         viewModel.adManager.requestConsentAndInit(this) {
-            // Preload rewarded ad if ads enabled
-            viewModel.adsConfig.value.rewardedAdUnitId?.let { adUnitId ->
-                if (viewModel.adsConfig.value.isAdsEnabled) {
-                    viewModel.adManager.loadRewardedAd(adUnitId)
-                }
+            val config = viewModel.adsConfig.value
+            viewModel.appOpenAdManager.adUnitId = config.appOpenAdUnitId
+            viewModel.appOpenAdManager.isAdsEnabled = config.isAdsEnabled
+            if (config.isAdsEnabled) {
+                config.rewardedAdUnitId?.let { viewModel.adManager.loadRewardedAd(it) }
+                config.interstitialAdUnitId?.let { viewModel.adManager.loadInterstitialAd(it) }
+                config.appOpenAdUnitId?.let { viewModel.appOpenAdManager.loadAd() }
             }
         }
 

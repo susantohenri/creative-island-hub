@@ -1,11 +1,13 @@
 package com.henrisusanto.creativeislandhub.di
 
 import com.henrisusanto.creativeislandhub.ads.AdManager
+import com.henrisusanto.creativeislandhub.ads.AppOpenAdManager
 import com.henrisusanto.creativeislandhub.data.local.PreferencesDataStore
 import com.henrisusanto.creativeislandhub.data.network.RemoteDataSource
 import com.henrisusanto.creativeislandhub.data.repository.IslandRepository
 import com.henrisusanto.creativeislandhub.ui.viewmodel.MainViewModel
 import okhttp3.OkHttpClient
+import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -23,6 +25,7 @@ val appModule = module {
     single { PreferencesDataStore(androidContext()) }
     single { IslandRepository(get(), get()) }
     single { AdManager(androidContext()) }
+    single { AppOpenAdManager(androidApplication()) }
     
-    viewModel { MainViewModel(get(), get()) }
+    viewModel { MainViewModel(get(), get(), get()) }
 }

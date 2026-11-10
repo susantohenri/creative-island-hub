@@ -19,6 +19,12 @@
 ### Core Mission
 Creative Island Hub is a lightweight, fan-made Android discovery utility and catalog for **Fortnite Creative & UEFN (Unreal Editor for Fortnite) island codes**. It enables players to browse, search, filter, and discover community-created islands. Island codes are initially locked behind an ethical, voluntary, policy-compliant rewarded ad mechanic. Once unlocked, the island code remains permanently accessible on the user's device without requiring user accounts or logins.
 
+### Community & Inspiration
+* **r/TheFortniteCreatives** — [https://www.reddit.com/r/TheFortniteCreatives/](https://www.reddit.com/r/TheFortniteCreatives/)
+  * Primary community hub for Fortnite Creative & UEFN creators
+  * Source of island discovery, feedback, and promotional inspiration
+  * Community-driven showcase of creative maps and game modes
+
 ---
 
 ## 2. Legal Positioning & Store Policy Compliance

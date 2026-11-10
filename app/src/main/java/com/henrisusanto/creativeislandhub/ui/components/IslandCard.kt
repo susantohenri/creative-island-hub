@@ -44,7 +44,8 @@ fun IslandCard(
     onUnlockClick: () -> Unit,
     onLikeClick: () -> Unit,
     modifier: Modifier = Modifier,
-    onTagClick: ((String) -> Unit)? = null
+    onTagClick: ((String) -> Unit)? = null,
+    onCopyClick: (() -> Unit)? = null
 ) {
     val context = LocalContext.current
     var isExpanded by remember { mutableStateOf(false) }
@@ -196,6 +197,7 @@ fun IslandCard(
                                     Row(verticalAlignment = Alignment.CenterVertically) {
                                         IconButton(onClick = {
                                             copyToClipboard(context, island.title, island.code)
+                                            onCopyClick?.invoke()
                                         }) {
                                             Icon(
                                                 painter = painterResource(R.drawable.ic_copy),

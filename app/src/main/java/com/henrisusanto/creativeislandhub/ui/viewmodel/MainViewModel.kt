@@ -3,6 +3,7 @@ package com.henrisusanto.creativeislandhub.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.henrisusanto.creativeislandhub.ads.AdManager
+import com.henrisusanto.creativeislandhub.ads.AppOpenAdManager
 import com.henrisusanto.creativeislandhub.analytics.AnalyticsLogger
 import com.henrisusanto.creativeislandhub.data.model.AdsConfig
 import com.henrisusanto.creativeislandhub.data.model.Island
@@ -21,7 +22,8 @@ import kotlinx.coroutines.launch
 @OptIn(FlowPreview::class)
 class MainViewModel(
     private val repository: IslandRepository,
-    val adManager: AdManager
+    val adManager: AdManager,
+    val appOpenAdManager: AppOpenAdManager
 ) : ViewModel() {
 
     private val _isLoading = MutableStateFlow(true)
@@ -106,10 +108,20 @@ class MainViewModel(
     private fun preloadAdsWhenReady() {
         viewModelScope.launch {
             adsConfig.collect { config ->
-                if (config.isAdsEnabled && config.rewardedAdUnitId != null) {
-                    adManager.loadRewardedAd(config.rewardedAdUnitId)
+                appOpenAdManager.adUnitId = config.appOpenAdUnitId
+                appOpenAdManager.isAdsEnabled = config.isAdsEnabled
+                if (config.isAdsEnabled) {
+                    config.rewardedAdUnitId?.let { adManager.loadRewardedAd(it) }
+                    config.interstitialAdUnitId?.let { adManager.loadInterstitialAd(it) }
+                    config.appOpenAdUnitId?.let { appOpenAdManager.loadAd() }
                 }
             }
+        }
+    }
+
+    fun onCodeCopied(activity: android.app.Activity) {
+        if (adsConfig.value.isAdsEnabled) {
+            adManager.onCodeCopied(activity, adsConfig.value.interstitialAdUnitId)
         }
     }
 

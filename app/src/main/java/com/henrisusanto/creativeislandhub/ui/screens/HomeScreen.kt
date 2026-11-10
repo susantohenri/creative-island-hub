@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
@@ -20,6 +21,7 @@ import com.henrisusanto.creativeislandhub.R
 import com.henrisusanto.creativeislandhub.analytics.AnalyticsLogger
 import com.henrisusanto.creativeislandhub.ui.components.BannerAdView
 import com.henrisusanto.creativeislandhub.ui.components.IslandCard
+import com.henrisusanto.creativeislandhub.ui.components.NativeAdCard
 import com.henrisusanto.creativeislandhub.ui.viewmodel.MainViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -36,7 +38,6 @@ fun HomeScreen(
     val searchQuery by viewModel.searchQuery.collectAsState()
     val selectedCategory by viewModel.selectedCategory.collectAsState()
     val adsConfig by viewModel.adsConfig.collectAsState()
-    val isAdLoading by viewModel.adManager.isAdLoading.collectAsState()
     
     val context = LocalContext.current
     var showUnlockDialog by remember { mutableStateOf<String?>(null) }
@@ -150,7 +151,7 @@ fun HomeScreen(
                 modifier = Modifier.weight(1f),
                 contentPadding = PaddingValues(bottom = 16.dp)
             ) {
-                items(islands, key = { it.code }) { island ->
+                itemsIndexed(islands, key = { _, it -> it.code }) { index, island ->
                     IslandCard(
                         island = island,
                         isUnlocked = unlockedIslands.contains(island.code),
@@ -161,8 +162,17 @@ fun HomeScreen(
                             viewModel.toggleLike(island.code)
                             AnalyticsLogger.logToggleLike(island.code, isLikedNow)
                         },
-                        onTagClick = { tag -> viewModel.updateSearchQuery(tag) }
+                        onTagClick = { tag -> viewModel.updateSearchQuery(tag) },
+                        onCopyClick = { (context as? Activity)?.let { viewModel.onCodeCopied(it) } }
                     )
+
+                    // Insert Native Ad every 6 items
+                    if (adsConfig.isAdsEnabled && adsConfig.nativeAdUnitId != null && (index + 1) % 6 == 0) {
+                        NativeAdCard(
+                            adUnitId = adsConfig.nativeAdUnitId!!,
+                            adManager = viewModel.adManager
+                        )
+                    }
                 }
             }
             
@@ -170,23 +180,6 @@ fun HomeScreen(
                 BannerAdView(adUnitId = adsConfig.bannerAdUnitId!!)
             }
         }
-    }
-
-    if (isAdLoading) {
-        AlertDialog(
-            onDismissRequest = {},
-            title = { Text(stringResource(R.string.app_name)) },
-            text = {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(16.dp)
-                ) {
-                    CircularProgressIndicator(modifier = Modifier.size(32.dp))
-                    Text(stringResource(R.string.msg_ad_loading))
-                }
-            },
-            confirmButton = {}
-        )
     }
 
     if (showUnlockDialog != null) {

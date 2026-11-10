@@ -61,7 +61,8 @@ fun LikedScreen(
                             viewModel.toggleLike(island.code)
                             AnalyticsLogger.logToggleLike(island.code, isLikedNow = false)
                         },
-                        onTagClick = { tag -> viewModel.updateSearchQuery(tag) }
+                        onTagClick = { tag -> viewModel.updateSearchQuery(tag) },
+                        onCopyClick = { (context as? Activity)?.let { viewModel.onCodeCopied(it) } }
                     )
                 }
             }
